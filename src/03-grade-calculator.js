@@ -26,4 +26,39 @@
  */
 export function calculateGrade(score, hasExtraCredit) {
   // Your code here
+  if (isNaN(score)) {
+    return "INVALID";
+  } else if (score >= 0 && score <= 100) {
+    if (hasExtraCredit) {
+      score = score + 5;
+      if (score > 100) {
+        score = 100;
+      }
+    }
+
+    let gradeACondition = score >= 90;
+    let gradeBCondition = score >= 80;
+    let gradeCCondition = score >= 70;
+    let gradeDCondition = score >= 60;
+    if (gradeACondition) {
+      //console.log("A");
+      return "A";
+    } else if (gradeBCondition) {
+      //console.log("B");
+      return "B";
+    } else if (gradeCCondition) {
+      //console.log("C")
+      return "C";
+    } else if (gradeDCondition) {
+      //console.log("D")
+      return "D";
+    } else {
+      //console.log("F");
+      return "F";
+    }
+  } else {
+    return "INVALID";
+  }
+
+
 }

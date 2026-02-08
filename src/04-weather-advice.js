@@ -22,4 +22,32 @@
  */
 export function getWeatherAdvice(temperature, isRaining) {
   // Your code here
+  // if(isNaN(temperature)){
+  //   return ""
+  // }
+  let tempCond35=temperature>=35;
+  let tempCond25norain = temperature>=25 && !isRaining;
+  let temCondi25rain = temperature>=25 && isRaining;
+  let tempCond15norain = temperature>=15 && !isRaining;
+  let tempCondi15rain = temperature>=15 && isRaining;
+  let tempCondi5norain = temperature>=5 && !isRaining;
+  let tempCondi5rain = temperature>=5 && isRaining;
+
+  if(tempCond35){
+    return "Too hot for hiking - stay indoors and hydrate";
+  }else if(tempCond25norain){
+    return "Great weather for hiking - don't forget sunscreen";
+  }else if(temCondi25rain){
+    return "Warm but rainy - consider indoor activities";
+  }else if(tempCond15norain){
+return "Perfect hiking weather - enjoy the trails";
+  }else if(tempCondi15rain){
+return "Cool and rainy - bring waterproof gear if hiking";
+  }else if(tempCondi5norain){
+return "Chilly - wear layers for your hike";
+  }else if(tempCondi5rain){
+    return "Cold and wet - best to stay indoors";
+  }else {
+    return "Too cold - stay warm indoors";
+  }
 }

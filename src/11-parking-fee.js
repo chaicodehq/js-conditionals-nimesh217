@@ -33,5 +33,24 @@
  * @returns {number} Parking fee or -1 for invalid input
  */
 export function calculateParkingFee(hours, vehicleType) {
-  // Your code here
+
+  if (hours <= 0 || (vehicleType !== 'car' && vehicleType !== 'motorcycle' && vehicleType !== 'bus')) {
+    return -1;
+  }
+  hours = Math.ceil(hours);
+  let parkingFees = 0;
+  if (vehicleType == "car") {
+    parkingFees = 5 + (hours - 1) * 3;
+    return Math.min(parkingFees, 30);
+  }
+  if (vehicleType == "motorcycle") {
+    parkingFees = 3 + (hours - 1) * 2;
+    return Math.min(parkingFees, 18);
+  }
+  if (vehicleType == "bus") {
+    parkingFees = 10 + (hours - 1) * 7;
+    return Math.min(parkingFees, 60);
+  }
+  
+
 }
